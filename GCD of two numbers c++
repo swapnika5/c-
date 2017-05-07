@@ -1,0 +1,25 @@
+#include<iostream.h>
+#include<conio.h>
+int gcd(int,int);
+int main()
+{
+  int a,b,g;
+  clrscr();
+  cout<<"ENTER TWO INTEGERS:";
+  cin>>a>>b;
+  g=gcd(a,b);
+  cout<<"GCD is:"<<g;
+  getch();
+  return 0;
+}
+int gcd(int a,int b)
+{
+  int r;
+  while(r!=0)
+   {
+    r=a%b;
+    a=b;
+    b=r;
+  }
+  return a;
+}
