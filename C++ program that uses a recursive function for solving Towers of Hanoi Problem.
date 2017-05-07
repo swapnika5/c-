@@ -1,0 +1,27 @@
+#include<iostream.h>
+#include<conio.h>
+void tower(int,char,char,char);
+int main()
+ {
+   int n;
+   clrscr();
+   cout<<"Enter number of disks";
+   cin>>n;
+   cout<<"Tower of hanoi involves following moves";
+   tower(n,'A','C','B');
+   getch();
+   return 0;
+ }
+void tower(int n,char frompeg,char topeg,char auxpeg)
+ {
+   if(n==1)
+    {
+     cout<<endl<<"MOVE DISK 1 FROM  "<<frompeg<<" TO "<<topeg;
+    }
+   else
+    {
+     tower(n-1,frompeg,auxpeg,topeg);
+     cout<<"MOVE DISK "<<n<<"  FROM "<<frompeg<<" TO "<<topeg<<endl;
+     tower(n-1,auxpeg,topeg,frompeg);
+    }
+ }
