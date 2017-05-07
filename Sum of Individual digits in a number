@@ -1,0 +1,20 @@
+
+#include<iostream.h>
+#include<conio.h>
+int main()
+ {
+   int n, m=0, sum=0;
+   clrscr();
+   cout<<"Enter a number:";
+   cin>>n;
+   while(n!=0)
+     {
+       m=n%10;
+       sum=sum+m;
+       m=n/10;
+       n=m;
+      }
+   cout<<"Sum of the digits:"<<sum;
+   getch();
+   return 0;
+ }
