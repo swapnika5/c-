@@ -1,0 +1,25 @@
+#include<iostream.h>
+#include<conio.h>
+int recursive(int);
+int main()
+{
+  int n,f;
+  clrscr();
+  cout<<"ENTER A NUMBER:";
+  cin>>n;
+  f=recursive(n);
+  cout<<"FACTORIAL is:"<<f;
+  getch();
+  return 0;
+}
+int recursive(int n)
+{
+   int a;
+   if(n>0)
+    {
+     a=n*recursive(n-1);
+     return a;
+    }
+   else 
+    return 1;
+}
