@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<conio.h>
+#include<iostream.h>
+#include<string.h>
+void main()
+{
+ char str[10],i,j;
+ clrscr();
+ cout<<"Enter Binary Number:";
+ gets(str);
+ for(i=strlen(str)-1;i>=0;i--)
+ if(str[i]=='1') 
+break;
+ for(j=0;j<i;j++)
+ if(str[j]=='1')
+ str[j]='0';
+ else
+ str[j]='1';
+ cout<<"2's Complement is:"<<str;
+ getch();
+}
