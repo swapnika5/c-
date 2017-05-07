@@ -1,0 +1,54 @@
+#include<iostream.h>
+#include<conio.h>
+void swap(int ,int);                            
+void swap(char,char);                    
+void swap(float,float);
+int main()
+{
+    clrscr();
+    int a,b;
+    cout<<"enter two integers";
+    cin>>a>>b;
+    cout<<"a,b values before swaping: "<<a<<" , "<<b<<endl;
+    swap(a,b);
+    char c,d;
+    cout<<"enter characters";
+    cin>>c>>d;
+    cout<<"a,b values before swaping: "<<c<<" , "<<d<<endl;
+    swap(c,d);
+    float e,f;
+    cout<<"enter two float";
+    cin>>e>>f;
+    cout<<"a,b values before swaping: "<<e<<" , "<<f<<endl;
+    swap(e,f);
+    getch();
+    return 0;
+}
+
+void swap(int a,int b)
+{
+  int t;
+  t=a;
+  a=b;
+  b=t;
+  cout<<"a,b values after swaping are : "<<a<<" , "<<b<<endl;
+
+}
+
+void swap(float e,float f)
+{
+  float t;
+  t=e;
+  e=f;
+  f=t;
+  cout<<"a,b values after swaping are : "<<e<<" , "<<f<<endl;
+}
+
+void swap(char c,char  d)
+{
+  char t;
+  t=c;
+  c=d;
+  d=t;
+  cout<<"a,b values after swaping are : "<<c<<" , "<<d<<endl;
+}
