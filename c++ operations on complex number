@@ -1,0 +1,82 @@
+#include<iostream.h>
+#include<conio.h>
+class complex;
+class complex1
+ {
+  float real,imaginary;
+  public:
+	 void read();
+	 void print();
+	 void add(complex,complex);
+	 void sub(complex,complex);
+	 void mul(complex,complex);
+	 void div(complex,complex);
+ };
+class complex:public complex1
+{
+public:
+void read()
+ {
+  cout<<"Enter the real part"<<endl;
+  cin>>real;
+  cout<<"Enter imaginary part"<<endl;
+  cin>>imaginary;
+ }
+void print()
+ {
+  if(imaginary>0)
+  cout<<real<<"+"<<imaginary<<"i"<<endl;
+  else if(imaginary==0)
+  cout<<real<<endl;
+  else
+  cout<<real<<imaginary<<"i"<<endl;
+ }
+void add(complex c1, complex c2)
+ {
+  real=c1.real+c2.real;
+  imaginary=c1.imaginary+c2.imaginary;
+  print();
+ }
+void sub(complex c1, complex c2)
+ {
+  real=c1.real-c2.real;
+  imaginary=c1.imaginary-c2.imaginary;
+  print();
+ }
+void mul(complex c1,complex c2)
+ {
+  real=(c1.real*c2.real)-(c1.imaginary*c2.imaginary);
+  imaginary=(c1.real*c2.imaginary)+(c1.imaginary*c2.real);
+  print();
+ }
+void div(complex c1,complex c2)
+ {
+ real=((c1.real*c2.real)+(c1.imaginary*c2.imaginary))/((c2.real*c2.real)+(c2.imaginary*c2.imaginary));
+ imaginary=((c1.imaginary*c2.real)-(c1.real*c2.imaginary))/((c2.real*c2.real)+(c2.imaginary*c2.imaginary));
+ print();
+ }
+int main()
+{
+complex c1,c2,c3;
+clrscr();
+c1.read();
+cout<<"first complex number";
+c1.print();
+c2.read();
+cout<<endl<<"second complex number";
+c2.print();
+cout<<endl<<"sum is";
+c3.add(c1,c2);
+cout<<endl<<"difference is";
+c3.sub(c1,c2);
+cout<<endl<<"product is";
+c3.mul(c1,c2);
+cout<<endl<<"quoitent is";
+c3.div(c1,c2);
+getch();
+return 0;
+}
+
+
+
+
