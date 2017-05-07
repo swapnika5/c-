@@ -1,0 +1,47 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+char arr[40][20];
+void sort(char arr[40][20],int );
+int n;
+int main()
+  {
+    int i;
+    clrscr();
+    cout<<"Enter the number of elements: \n";
+    cin>>n;
+    cout<<"Enter the values one by one \n";
+    for(i=0;i<n;i++)
+      {
+	gets(arr[i]);
+      }
+    
+    cout<<"List in alphabetical order:\n";
+    sort(arr,n);
+    for(i=0;i<=n;i++)
+     {
+       puts(arr[i]);
+     }
+   getch();
+   return 0;
+  }
+void sort(char arr[40][20],int n)
+  {
+   int i,j;
+   char temp[15];
+   for(i=0;i<=n-1;i++)
+     {
+       for(j=i;j<n;j++)
+         {
+           if(strcmp(arr[i],arr[j])>0)
+            {
+               strcpy(temp,arr[i]);
+               strcpy(arr[i],arr[j]);
+               strcpy(arr[j],temp);
+            }
+         }
+     }
+  }
+
