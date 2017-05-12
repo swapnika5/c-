@@ -1,0 +1,33 @@
+#include<iostream.h>
+#include<string.h>
+#include<conio.h>
+#include<stdio.h>
+
+int main()
+{
+   char string[100], ch;
+   int c = 0, count[26] = {0};
+   clrscr();
+   cout<<"Enter a string\n";
+   gets(string);
+
+   while ( string[c] != '\0' )
+   {
+
+
+      if ( string[c] >= 'a' && string[c] <= 'z' )
+	 count[string[c]-'a']++;
+
+      c++;
+   }
+
+   for ( c = 0 ; c < 26 ; c++ )
+   {
+      if( count[c] != 0 )
+
+
+	 cout<<char(c+'a')<<" occurs "<<count[c]<<"times in the entered string.\n";
+   }
+   getch();
+   return 0;
+}
