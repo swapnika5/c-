@@ -1,0 +1,49 @@
+#include<iostream.h>
+#include<conio.h>
+#include<fstream.h>
+class Inventory
+{
+ char name[10];
+ int code;
+ float cost;
+ public:
+    void readdata();
+    void writedata();
+};
+void Inventory::readdata()
+{
+  cout<<"Enter name ";
+  cin>>name;
+  cout<<"Enter code ";
+  cin>>code;
+  cout<<"Enter cost ";
+  cin>>cost;
+}
+void Inventory::writedata()
+{
+  cout<<"\n Name :"<<name<<"\n Code :"<<code<<"\n Cost :"<<cost;
+}
+int main()
+{
+    Inventory item[3];
+    fstream object;
+    object.open("object.dat",ios::in|ios::out);
+    cout<<"Enter the details for three items \n";
+    for(int i=0;i<3;i++)
+    {
+      item[i].readdata();
+      object.write((char*)&item[i],sizeof(item[i]));
+    }
+    object.seekg(0);
+    cout<<"\n output\n";
+    for(i=0;i<3;i++)
+    {
+       object.read((char*)&item[i],sizeof(item[i]));
+       item[i].writedata();
+    }
+    object.close();
+    getch();
+    return 0;
+    }
+
+
