@@ -1,0 +1,91 @@
+#include<iostream.h>
+#include<stdlib.h>
+#include<conio.h>
+void main()
+{
+ char s[10];
+ int sum=0,k=0;
+ clrscr();
+ cout<<"Enter roman numeral :";
+ cin>>s;
+ while(s[k]!='\0')
+ {
+  switch(s[k])
+  {
+   case 'm':sum+=1000;
+	    k++;
+	    break;
+   case 'd':
+	    sum+=500;
+	    k++;
+	    break;
+   case 'c':if(s[k+1]=='d')
+	     {
+	       sum+=400;
+	       k+=2;
+	       break;
+	     }
+	    if(s[k+1]=='m')
+	     {
+	       sum+=900;
+	       k+=2;
+	       break;
+	     }
+	    else
+	     {
+	       sum+=100;
+	       k++;
+	       break;
+	     }
+     case 'l':
+	     sum+=50;
+	     k++;
+	     break;
+   case 'x': if(s[k+1]=='l')
+	       {
+		 sum+=40;
+		 k+=2;
+		 break;
+	       }
+	     if(s[k+1]=='c')
+	       {
+		sum+=90;
+		k+=2;
+		break;
+	       }
+	     else
+	       {
+		 sum+=10;
+		 k++;
+		 break;
+	       }
+   case 'v':
+	    sum+=5;
+	    k++;
+	    break;
+   case 'i':if(s[k+1]=='x' )
+	     {
+	       sum+=9;
+	       k+=2;
+	       break;
+	     }
+	   if(s[k+1]=='v')
+	     {
+	      sum+=4;
+	      k+=2;
+	      break;
+	     }
+	    else
+	    {
+	      sum+=1;
+	      k++;
+	      break;
+	    }
+   default :cout<<"Invalid Roman numeral:";
+	     exit(0);
+  }
+
+ }
+ cout<<"The equivalent Arabic integer is :"<<sum;
+ getch();
+}
