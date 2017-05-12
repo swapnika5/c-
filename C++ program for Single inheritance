@@ -1,0 +1,44 @@
+#include<iostream.h>
+#include<iomanip.h>
+#include<conio.h>
+class Emp
+{
+   public:
+     int eno;
+     char name[20],des[20];
+     void get()
+     {
+	      cout<<"Enter the employee number:";
+	      cin>>eno;
+	      cout<<"Enter the employee name:";
+	      cin>>name;
+     }
+};
+class Salary:public Emp
+{
+     float bp,hra,np;
+     public:
+       void get1()
+	  {
+	      cout<<"Enter the basic pay:";
+	      cin>>bp;
+	      cout<<"Enter the Human Resource Allowance:";
+	      cin>>hra;
+	  }
+};
+
+void main()
+{
+    int i,n;
+    char ch;
+    Salary s[10];
+    clrscr();
+    cout<<"Enter the number of employees: ";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+	      s[i].get();
+	      s[i].get1();
+    }
+    getch();
+}
