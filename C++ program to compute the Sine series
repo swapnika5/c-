@@ -1,0 +1,28 @@
+#include<iostream.h>
+#include<conio.h>
+
+int main()
+{
+	int i,j,n,fact,sign=-1;
+	float x, p=1,sum=0;
+	cout<<"Enter the value of x : ";
+	cin>>x;
+	cout<<"Enter the value of n : ";
+	cin>>n;
+
+	for(i=1;i<=n;i+=2)
+	{
+		fact=1;
+		for(j=1;j<=i;j++)
+		{
+			p=p*x;
+			fact=fact*j;
+		}
+		sign=-1*sign;
+		sum+=sign*p/fact;
+	}
+	cout<<"sin "<<x<<"="<<sum;
+
+	getch();
+	return 0;
+}
