@@ -1,0 +1,20 @@
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+char str1[20],str2[20];
+int i;
+clrscr();
+cout<<"Enter string ";
+cin>>str1;
+strcpy(str2,str1);
+strrev(str1);
+i=strcmp(str1,str2);
+if(i==0)
+cout<<"Palindrome sting";
+else
+cout<<"Not palindrome";
+getch();
+return 0;
+}
