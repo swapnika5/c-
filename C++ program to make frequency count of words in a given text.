@@ -1,0 +1,71 @@
+#include<string.h>
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#define SIZE 50
+struct freq
+{
+    int n;
+    char *s;
+};
+void display(char text[][SIZE],int num)
+{
+    for(int i=0;i<=num;++i)
+    {
+        puts(text[i]);
+        //cout<<endl;
+    }
+}
+int main()
+{
+    char text[SIZE][SIZE],ch;
+    int i=0,j=0,k=-1,a;
+    int flg=1;
+    clrscr();
+    freq words[120];
+    cout<<"Please enter text trucated by $"<<endl;
+    while((ch=getchar())!='$')
+      {
+	if(ch==' '&&flg==1)
+	     continue;
+	else if(ch==' '||ch=='\n')
+	{
+	    flg=1;
+	    ++i;
+	    j=0;
+	}
+	else
+	{
+	    flg=0;
+	  text[i][j++]=ch;
+	  text[i][j]='\0';
+	}
+      }
+      cout<<"given text is :"<<endl;
+      display(text,i);
+      for(j=0;j<=i;++j)
+      {
+	if(strcmp(text[j],"#")!=0)
+	{
+	    words[++k].s=text[j];
+	    words[k].n=1;
+	    for(a=j+1;a<=i;++a)
+	    {
+		if(strcmp(text[j],text[a])==0)
+		{
+		    ++words[k].n;
+		    strcpy(text[a],"#");
+		}
+	    }
+	}
+	else
+	    continue;
+      }
+      for(j=0;j<=k;++j)
+      {
+	cout<<words[j].s<<"\t is repeated "<<words[j].n<< "times"<<endl;
+      }
+      getch();
+    return 0;
+
+}
