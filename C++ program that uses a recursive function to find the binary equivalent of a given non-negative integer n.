@@ -1,0 +1,29 @@
+#include<iostream.h>
+#include<conio.h>
+int* recursive(int);
+int a[50],*c;
+static int i=0;
+void main()
+{
+ int n;
+ clrscr();
+ cout<<"Enter a non negative number \n";
+ cin>>n;
+ c=recursive(n);
+ for(i;i!=0;i--)
+  {
+    cout<<c[i];
+  }
+ getch();
+}
+int* recursive(int n)
+ {
+  i++;
+  a[i]=n%2;
+  n=n/2;
+  if(n==0)
+  return a;
+  else
+   recursive(n);
+  return a;
+}
