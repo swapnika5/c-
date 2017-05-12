@@ -1,0 +1,43 @@
+#include <iostream.h> 
+#include <conio.h> 
+const int max = 80; 
+class first 
+{ 
+           protected: 
+                             char name[max]; 
+                             char cls [max] ; 
+           public: 
+                             virtual void insert()=0; 
+                             virtual void show()=0; 
+}; 
+     class second: public first 
+     { 
+           protected: 
+                             float fees; 
+           public: 
+                             void insert() 
+                       { 
+                            cout<<"\n INPUT\n";
+                            cout<<"Name : "; 
+                            cin>>name; 
+                            cout<<"Class: "; 
+                            cin>>cls; 
+                            cout<<"Fees :"; 
+                            cin>>fees; 
+                       } 
+                           void show() 
+                      { 
+                          cout<<"\n OUTPUT\n";
+                          cout<<"\nName : "<<name<<"\n"; 
+                          cout<<"Class: "<<cls<<"\n"; 
+                          cout<<"Fees : "<<fees<<"\n"; 
+                      } 
+   }; 
+               void main() 
+       { 
+              clrscr();   
+              second s1; 
+              s1.insert(); 
+              s1.show(); 
+              getch(); 
+       } 
