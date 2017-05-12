@@ -1,0 +1,24 @@
+#include <iostream.h>
+#include <ctype.h>
+#include<stdio.h>
+#include <conio.h>
+void main()
+{
+    char name[10][10],c;
+    int lines=1;
+    int words=1;
+    int chars=1;
+    clrscr();
+    cout<<"Enter string termanate by # : ";
+    while((c=getchar()) != '#')
+     {
+	if(isalpha(c))
+	    chars++;
+	if(c==' ' || c=='\n')
+	    words++;
+	if(c=='\n')
+	    lines++;
+     }
+    cout<<"characters: "<<chars-1<<endl<<"words "<<words<<endl<<"lines "<<lines<<endl;
+    getch();
+}
