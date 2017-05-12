@@ -1,0 +1,17 @@
+/*Write a c++ program that uses a function i to a which converts a number to a character string.*/
+//program:
+#include<iostream.h>
+#include<stdlib.h>
+#include<conio.h>
+int main()
+{
+int n;
+char a[10];
+clrscr();
+cout<<"Enter a number \n";
+cin>>n;
+itoa(n,a,10);
+cout<<"Num "<<n<<" Char "<<a;
+getch();
+return 0;
+}
