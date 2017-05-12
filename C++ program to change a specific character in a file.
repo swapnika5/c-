@@ -1,0 +1,49 @@
+#include<iostream.h>
+#include<stdio.h>
+#include<conio.h>
+#include<fstream.h>
+void main()
+  {
+     char c,fname[10];
+     clrscr();
+     ofstream out;
+     cout<<"Enter File name: ";
+     cin>>fname;
+     out.open(fname);
+     cout<<"Enter contents to store in file (Enter # at end):\n";
+     while((c=getchar())!='#')
+	{
+	   out<<c;
+	}
+     out.close();
+
+     ifstream in(fname);
+     cout<<"\n\nPrinting contents of the file "<<fname<<endl;
+     while(in.eof()==0)
+       {
+	  in.get(c);
+	  cout<<c;
+       }
+       in.close();
+     cout<<"Enter the character number \n";
+     int n;
+     cin>>n;
+     n--;
+     fstream file;
+     file.open(fname,ios::in|ios::out);
+     file.seekp(n,ios::beg);
+     cout<<"Enter new value \n";
+     cin>>c;
+     file<<c;
+     file.close();
+     ifstream init(fname);
+     cout<<"\n\nPrinting contents of new file "<<fname<<endl;
+     while(init.eof()==0)
+       {
+	  init.get(c);
+	  cout<<c;
+       }
+       init.close();
+
+     getch();
+  }
