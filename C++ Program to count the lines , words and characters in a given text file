@@ -1,0 +1,42 @@
+/*C++ Program to count the lines , words and characters in a given text file*/
+//PROGRAM
+#include<iostream.h>
+#include<stdio.h>
+#include<ctype.h>
+
+#include<conio.h>
+#include<fstream.h>
+void main()
+  {
+     char c,fname[10];
+    int lines=1,words=1,chars=1;
+     clrscr();
+     ofstream out;
+     cout<<"Enter File name:";
+     cin>>fname;
+     out.open(fname);
+     cout<<"Enter contents to store in file (Enter # at end):\n";
+     while((c=getchar())!='#')
+        {
+           out<<c;
+        }
+     out.close();
+     ifstream in(fname);
+     while(in.eof()==0)
+       {
+          in.get(c);
+          if(isalpha(c))
+	    chars++;
+	  if(c==' ' || c=='\n')
+	    words++;
+	  if(c=='\n')
+	    lines++;
+       }
+     cout<<"\n";
+     cout<<"Lines: "<< lines<<endl;
+     cout<<"Words: "<< words<<endl;
+     cout<<"Characters: "<< characters;
+     in.close();
+     getch();
+   }
+    
