@@ -1,0 +1,43 @@
+/*43.Write a c++ program that illustrates how run time polymorphism is achieved using virtual functions.
+program:*/
+#include<iostream.h>
+#include<conio.h>
+class base 
+{
+public:
+int i;
+base(int n)
+{
+i=n;
+}
+virtual void function()
+{
+cout<<"In base version of function \n";
+cout<<i;
+}
+};
+class derived1:public base
+{
+public:
+derived1(int x):base(x){}
+void function()
+{
+cout<<"\n In derived version of function double the value \n";
+cout<<i+i;
+}
+};
+void main()
+{
+base *p;
+int num;
+clrscr();
+cout<<"Enter a number \n";
+cin>>num;
+base obj(num);
+derived1 d1_obj(num);
+p=&obj;
+p->function();
+p=&d1_obj;
+p->function();
+getch();
+}
