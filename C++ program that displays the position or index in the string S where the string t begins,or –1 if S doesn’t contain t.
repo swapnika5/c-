@@ -1,0 +1,20 @@
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+ char s[30],t[20];
+ char *pos;
+ clrscr();
+ cout<<"Enter  the main string";
+ cin>>s;
+ cout<<"Enter the string to be searched";
+ cin>>t;
+ pos=strstr(s,t);
+ if(pos)
+ cout<<"Second string found in the main String at"<<pos-s+1<<" index";
+ else
+ cout<<"-1";
+ getch();
+return 0;
+}
