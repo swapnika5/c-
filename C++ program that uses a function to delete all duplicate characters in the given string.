@@ -1,0 +1,38 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#include<string.h>
+void duplicate()
+ {
+   char str[30];
+   int i,j,k,l;
+   clrscr();
+   cout<<"Enter a string ";
+   gets(str);
+   l=strlen(str);
+   str[l]='\0';
+   for(i=0;i<l;i++)
+    {
+      for(j=i+1;j<l;j++)
+       {
+	 if(str[i]==str[j])
+	  {
+	    k=j;
+	    for(k;k<l;k++)
+	     {
+	       str[k]=str[k+1];
+	     }
+	    str[k]='\0';
+	  }
+       }
+    }
+   cout<<"String is ";
+   puts(str);
+ }
+int main()
+ {
+   clrscr();
+   duplicate();
+   getch();
+   return 0;
+ }
