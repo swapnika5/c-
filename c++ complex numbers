@@ -1,0 +1,91 @@
+/* 15.Implement the complex number ADT in c++ using a class. The complex ADT is used to represent complex numbers of the form c=a+ib, where a and b are real numbers.The operations supported by this ADT are:
+a.reading a complex number.
+b.writing a complex number.
+c.addition of complex numbers.
+d.subtraction of complex numbers.
+e.multiplication of complex numbers.
+f.division of complex numbers.
+program:*/
+#include<iostream.h>
+#include<conio.h>
+#include<math.h>
+#include<stdlib.h>
+class complex 
+{
+    double r,i;
+    static int count;
+    public:
+	complex operator+(complex n2);
+	complex operator-(complex n2);
+	complex operator*(complex n2);
+	complex operator/(complex n2);
+	friend istream& operator>>(istream& op, complex &x);
+	friend ostream& operator<<(ostream& op, complex &x);
+	};
+    int complex::count;
+    istream& operator>>(istream& ip, complex &x) 
+     {
+	cout << "Type the real and imaginary parts of complex "<<x.count+1<<" : ";
+	ip>>x.r;
+	ip>>x.i;
+	x.count++;
+	return ip;
+     }
+
+    ostream& operator<<(ostream& op, complex &x)
+     {
+	if(x.i>=0)
+		op << "The complex number is : "<<x.r<<"+"<<x.i<<"i"<<endl;
+	else
+		op << "The complex number is : "<<x.r<<x.i<<"i"<<endl;
+	return op;
+     }
+    complex complex::operator+(complex n2)
+     {
+	complex n3;
+	n3.r= r + n2.r;
+	n3.i= i + n2.i;
+	return n3;
+    }
+   complex complex::operator-(complex n2)
+    {
+	complex n3;
+	n3.r= r - n2.r;
+	n3.i= i - n2.i;
+	return n3;
+    }
+   complex complex::operator*(complex n2)
+    {
+	complex n3;
+	n3.r= (r * n2.r) - (i * n2.i);
+	n3.i= (r * n2.i) + (i * n2.r);
+	return n3;
+    }
+   complex complex::operator/(complex n2)
+    {
+	complex n3;
+	n3.r= ((r * n2.r) + (i * n2.i))/(n2.r*n2.r + n2.i*n2.i);
+	n3.i= ((i * n2.r) - (r * n2.i))/(n2.r*n2.r + n2.i*n2.i);
+	return n3;
+    }
+  void main()
+    {
+	complex a,b,c;
+	cin>>a;
+	cin>>b;
+	cout<<a;
+	cout<<b;
+	cout<<"Sum is ";
+	c=a+b;
+	cout<<c;
+	cout<<"Difference is ";
+	c=a-b;
+	cout<<c;
+	cout<<"Product is ";
+	c=a*b;
+	cout<<c;
+	cout<<"Quotient is ";
+	c=a/b;
+	cout<<c;
+	getch();
+    }
