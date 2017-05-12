@@ -1,0 +1,59 @@
+/*Template based program that determines if a
+
+particular value occurs in an array of values.*/
+
+#include<iostream.h>
+#include<conio.h>
+template <class T>
+void search(T arr[])
+ {
+   T a;
+   int flag=0;
+   cout<<"Enter the element which you want to search:";
+   cin>>a;
+   for(T i=0;i<10;i++)
+      if(a==arr[i])
+         {
+           flag=1;
+           break;
+         }
+      if(flag==1)
+         cout<<"\nElement is present in the array.";
+     else
+	 cout<<"\nElement is not present in the array.";
+
+ }
+
+void main()
+
+ {
+    clrscr();
+    int arri[50],ch,i,n;
+    char arrc[51];
+    float arrf[50];
+    cout<<"Program to search element in an array.\n Which array you want to make?\n";
+    cout<<"Enter your choice:\n1.integer\n2.characters\n3.Real number\n";
+    cin>>ch;
+    cout<<"Enter number of elements in the array \n";
+    cin>>n;
+    switch(ch)
+      {
+	 case 1: cout<<"Enter array of integers:";
+		 for(i=0;i<n;i++)
+		    cin>>arri[i];
+		 search(arri);
+		 break;
+	 case 2: cout<<"Enter array of characters:";
+		 for(i=0;i<n;i++)
+		    cin>>arrc[i];
+		  search(arrc);
+		  break;
+	 case 3: cout<<"Enter array of real numbers:";
+		 for(i=0;i<n;i++)
+		    cin>>arrf[i];
+		 search(arrf);
+		 break;
+	default:cout<<"Wrong choice";
+      }
+    getch();
+ }
