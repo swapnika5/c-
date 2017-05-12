@@ -1,0 +1,68 @@
+#include<iostream.h>
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+void insert();
+void deletes();
+int main()
+{
+int ch;
+clrscr();
+cout<<"Enter choice \n 1.Insert substring in main string \n 2.Delete substring from main string \n";
+cin>>ch;
+if(ch==1)
+insert();
+if(ch==2)
+deletes();
+else
+{
+cout<<"invalid choice";
+exit(0);
+}
+return 0;
+}
+void insert()
+{
+char st[15],sub[15],temp[15];
+int i,j,k,pos;
+cout<<"Enter Main String :";
+cin>>st;
+cout<<"Enter Sub String : ";
+cin>>sub;
+cout<<"Enter the position to insert the substring :";
+cin>>pos;
+pos=pos-1;
+strcpy(temp,st);
+for(i=pos,j=0;j<=strlen(sub);i++,j++)
+st[i]=sub[j];
+for(j=pos,i=strlen(st);j<=strlen(temp);i++,j++)
+st[i]=temp[j];
+st[i]='\0';
+cout<<"string is "<<st;
+getch();
+}
+
+void deletes()
+{
+char st[15];
+int i,j,l,pos,n;
+cout<<"Enter Any String : ";
+cin>>st;
+cout<<"Enter the position to delete the characters :";
+cin>>pos;
+pos=pos-1;
+cout<<"Enter the no of characters to be deleted:";
+cin>>n;
+l=strlen(st);
+if(pos>l)
+cout<<" Deletion is not possible";
+else
+{
+ for(i=pos,j=pos+n;i<=l;i++,j++)
+st[i]=st[j];
+st[i]='\0';
+}
+cout<<"string is "<<st;
+getch();
+}
