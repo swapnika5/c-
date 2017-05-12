@@ -1,0 +1,91 @@
+#include<iostream.h>
+#include<conio.h>
+class String
+{
+        private:
+                char s[100];
+        public:
+                void input();
+                void output();
+                int operator<(String);
+                void operator+(String);
+};
+int String::operator<(String a)
+{
+    int l1,l2,i;
+    for(l1=0;s[l1]!='\0';++l1);         //length of first string
+    for(l2=0;a.s[l2]!='\0';++l2);     //length of second string
+    if(l1>l2)
+    {    
+        for(i=0;s[i]!='\0';++i)
+        {
+                if(a.s[i]!='\0'&&s[i]==a.s[i])
+                        continue;
+                else if(a.s[i]=='\0')      
+                        return 1;
+                return s[i]-a.s[i];
+        }
+        if(a.s[i]!='\0')
+        return -1;
+   }
+   if(l1<=l2)
+   {  
+        for(i=0;a.s[i]!='\0';++i)
+        {
+                     if(s[i]!='\0'&&s[i]==a.s[i])
+                        continue;
+                else if(s[i]=='\0')
+                        return -1;
+                return s[i]-a.s[i];
+        }
+        if(a.s[i]!='\0')
+        return 1;
+   }
+return 0;
+}
+
+void String::operator+(String a)
+{
+        int i,j;
+        for( i=0;s[i]!='\0';++i);             //traversing first string upto the Null
+        for( j=0;a.s[j]!='\0';++j,++i)     //Appending second string to first
+        {
+                s[i]=a.s[j];
+	}
+	s[i]='\0';
+}
+
+void String::input()
+{
+        cout<<"Please enter a string :"<<endl;
+        cin>>s;
+}
+
+void String::output()
+{
+        cout<<"the string is :";
+        cout<<s<<endl;
+}
+int main()
+{
+        String s1,s2;
+        int c;
+        clrscr();
+        cout<<"Reading first string .....";
+        s1.input();
+        cout<<"Reading second string .....";
+        s2.input();
+          c=s1<s2;
+       if(c==0)
+       cout<<"\nboth strings are equall";
+       else if(c>0)
+       cout<<"\nfirst string is larger than second";
+       else
+       cout<<"\nsecond string is larger than first";
+       cout<<"\nAfter concatenation.......";
+       s1+s2;
+       s1.output();
+       getch();
+       return 0;
+       
+}
